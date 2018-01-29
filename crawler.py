@@ -2,54 +2,48 @@ from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client['test']
 products = db['products']
-import pprint
+failed = db['failed']
+
 url_dict = {}
 import link_crawler
 url_dict.update(link_crawler.run())
+
 import product_crawler
 product_dict = {}
-count = 0
-
+total_count = 0
 product_list = []
+failed_products = {}
+
 def insert_into_db(product_dict):
     if product_dict == {}:
         print('EMPTY PRODUCT DICTIONARY RECEIVED\nTERMINATING')
     else:
         for key, product in product_dict.items():
             product.update({'key':key})
-            print('Inserting: '+product['name'])
             product_list.append(product)
-    #        product = json.dumps(product, indent = 4)
-            
-    #        products.insert_one(product)
+            print(product['name'], '\t\t\t\tSUCCEFULLY INSERTED')
         products.insert_many(product_list)
+        failed.insert_many(failed_products)
 
+###############     Extracting Links     ##############
+succesful_insertions = 0
 for key, link in url_dict.items():
-    if products.find_one({'key':key}) != None: continue            #check if product exists in database
-    count+=1
-    print(count)
+    if products.find_one({'key':key}) != None: continue     #check if product exists in database
+    total_count+=1                                          #counting total products
     try:
-        product = product_crawler.run(link)
+        product = product_crawler.run(link)                 #fetching product data corresponding to link
         product_dict[key] = product
+        succesful_insertions += 1                           #counting successful insertons
     except:
         print("Failed at: ", link)
-#        input('Hit Enter to Continue')
+        print("Inserting into failed product database")
+        failed_products["key"] = link                   #inserting failed links
 
-###################Printing to External File####################
-#converting this data into json
-'''try: import simplejson as json
-except: import json
-json_product_dict = json.dumps(product_dict, indent = 4)
-import sys
-f = open('product_data.txt', 'w')
-f.write(json_product_dict)
-f.close()
-'''
-####################INSERTING INTO DATABASE###################
-#import product_db
-#insert_to_db(product_dict)
-
-#print(json_product_dict)
+###############     INSERTING INTO DATABASE     ##############
 import product_db
 product_db.insert_into_db(product_dict)
+for key in failed_products.keys():
+    print(failed_products[key], "\t\t\t\tINSERTION FAILED")
+print('Number of Succesful Insertions: ',succesful_insertions)
+print('Number of Failed Insertions: ', total_count - succesful_insertions)
 input("That's all folks!")
