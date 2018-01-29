@@ -45,7 +45,7 @@ def run(half_link):
     product['tags'] = link[34:].split('-')
     product['img'] = 'https://img2.smartprix.com/laptops/' + product['tags'][-1][1:] + '/n-1.jpg'
     product['specs'] = process_full_specs(specs_table_left, specs_table_right)
-    pp.pprint(product)
+    #pp.pprint(product)
     return product
     
 ###########################     Uncomment next line to test script     ############################
