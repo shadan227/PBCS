@@ -28,7 +28,7 @@ def insert_into_db(successful_products_dict):
 for key, link in url_dict.items():
     if products.find_one({'key':key}) != None: continue     #check if product exists in database
     total_count+=1
-    print('Processing Product Number: ', total_count)    #counting total products
+    print('Processing Product Number: ', total_count)       #counting total products
     try:
         product = product_crawler.run(link)                 #fetching product data corresponding to link
         successful_products_dict[key] = product
@@ -36,7 +36,7 @@ for key, link in url_dict.items():
     except:
         print("Failed at: ", link)
         print("Inserting into failed product database")
-        failed_products_list.append({'link':link})                        #inserting failed links
+        failed_products_list.append({'link':link})           #inserting failed links
 
 ###############     INSERTING INTO DATABASE     ##############
 insert_into_db(successful_products_dict)

@@ -9,12 +9,12 @@ def process_specs_table(table):
         #print(row.get_text())
         row  = row.get_text().split(':')                #Extracting row data
         if len(row) > 1:
-            sub_spec[row[0]] = row[1]                   
+            sub_spec[row[0]] = row[1]
         elif len(row) == 1 and row[0] != '':            #This is a heading
             heading = row[0]
         else:
             spec_dict[heading] =  sub_spec              #This is a sub-specification
-            sub_spec = {}   
+            sub_spec = {}
     return spec_dict
 
 def process_full_specs(specs_table_left, specs_table_right):
@@ -33,7 +33,7 @@ from bs4 import BeautifulSoup
 pp = pprint.PrettyPrinter(indent=4)
 ##################################     fetching data     #####################################
 def run(half_link):
-    link = 'https://www.smartprix.com/laptops/' + half_link 
+    link = 'https://www.smartprix.com/laptops/' + half_link
     page = requests.get(link)
     soup = BeautifulSoup(page.content, 'html.parser')
     product = {}
@@ -44,9 +44,9 @@ def run(half_link):
     product['brand'] = product['name'].split(' ')[0]
     product['tags'] = link[34:].split('-')
     product['img'] = 'https://img2.smartprix.com/laptops/' + product['tags'][-1][1:] + '/n-1.jpg'
-    product['specs'] = process_full_specs(specs_table_left, specs_table_right)
+    product['specs'] = {'full_specs':process_full_specs(specs_table_left, specs_table_right)}
     #pp.pprint(product)
     return product
-    
+
 ###########################     Uncomment next line to test script     ############################
 #run(half_link)
