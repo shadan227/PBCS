@@ -1,5 +1,3 @@
-half_link = 'hp-15-bs145tu-notebook-8th-gen-ci5-8gb-1tb-freedos-p130125q7rjj'    #dummy test link
-
 def process_specs_table(table):
     row_list = table.find_all('tr')
     spec_dict = {}
@@ -49,4 +47,5 @@ def run(half_link):
     return product
 
 ###########################     Uncomment next line to test script     ############################
+#half_link = 'hp-15-bs145tu-notebook-8th-gen-ci5-8gb-1tb-freedos-p130125q7rjj'    #dummy test link
 #run(half_link)
