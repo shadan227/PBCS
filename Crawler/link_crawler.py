@@ -20,25 +20,22 @@ def run():
     for key in url_dict.keys():
         print(str(count) + '\t- ', key, ':', url_dict[key])
         count += 1
-        
+
     print("Total links received: ", len(url_dict))
     input('PRESS ENTER KEY TO CONTINUE')
     return url_dict
-    
+
 
 def fetch_url_list_from_page(p_no):
     '''Function to fetch data from given page number'''
     link = "https://www.smartprix.com/laptops/?page=" + str(p_no) #+ "&sort=spec_score&asc=0"
     page = requests.get(link)
     soup = BeautifulSoup(page.content, 'html.parser')                       #parsing the html page elements
-    html = list(soup.children)[2]                                           #because 3rd element has the navigable tags
-    body = list(html.children)[3]                                           #because 4th element has paragraph tag
-    main_content = list(body.children)[11]                                  #contains content-wrapper class
-    laptop_list = main_content.find('ul', class_ = 'list-content')          #contains the list of all laptops
+    laptop_list = soup.find('ul', class_ = 'list-content')                  #contains the list of all laptops
     url_dict = url_list_constructor(laptop_list)                            #receiving dictionary of key: url
     return url_dict
 
-    
+
 def url_list_constructor(laptop_list):
     '''*********************Extracting URL**************************'''
     url_dict = {}
@@ -46,7 +43,7 @@ def url_list_constructor(laptop_list):
         item = i.find('a')
         try:
             if 'href' in item.attrs:
-                url = item['href'][9:] #0-8 in string is '/laptops/'
+                url = item['href'][9:]                                      #0-8 in string is '/laptops/'
                 key = url.split('-')[-1]
                 url_dict[key] = url
         except: pass
