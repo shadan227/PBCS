@@ -42,7 +42,7 @@ def run(half_link):
     product['brand'] = product['name'].split(' ')[0]
     product['tags'] = link[34:].split('-')
     product['img'] = 'https://img2.smartprix.com/laptops/' + product['tags'][-1][1:] + '/n-1.jpg'
-    product['specs'] = {'full_specs':process_full_specs(specs_table_left, specs_table_right)}
+    product['specifications'] = {'full_specs':process_full_specs(specs_table_left, specs_table_right)}
     #pp.pprint(product)
     return product
 
