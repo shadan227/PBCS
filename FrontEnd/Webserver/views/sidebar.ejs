@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SideBar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/Header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="javascripts/jquery-3.0.0.min.js"></script>
+    <script src="javascripts/topbt.js"></script>
+    <script src="javascripts/ajax.js"></script>
+</head>
+<body>
+    <!-- <div class="container-fluid mn"> -->
+        <div class="side">
+            <div class="sideleft">
+                Filter Results
+            </div>
+            <br>
+            <div class="sideleft1">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="price" onclick="displayDiv1()"></i>&nbsp;Price
+                <input type="submit" value="clear" class="common" id="bt" onclick="uncheckAllDiv1()">
+            </div>
+            <div class="sideleft11" id="sideleft11">
+                    <input type="checkbox" class="common" name="price" value="0-25000">&nbsp;&nbsp;Below Rs. 25,000<br>
+                    <input type="checkbox" class="common" name="price" value="25000-30000">&nbsp;&nbsp;Rs. 25,000 - Rs. 30,000<br>
+                    <input type="checkbox" class="common" name="price" value="30000-40000">&nbsp;&nbsp;Rs. 30,000 - Rs. 40,000<br>
+                    <input type="checkbox" class="common" name="price" value="40000-50000">&nbsp;&nbsp;Rs. 40,000 - Rs. 50,000<br>
+                    <input type="checkbox" class="common" name="price" value="50000-70000">&nbsp;&nbsp;Rs. 50,000 - Rs. 70,000<br>
+                    <input type="checkbox" class="common" name="price" value="70000-100000">&nbsp;&nbsp;Rs. 70,000 - Rs. 100,000<br>
+                    <input type="checkbox" class="common" name="price" value="100000-120000">&nbsp;&nbsp;Rs. 100,000 - Rs. 120,000<br>
+                    <input type="checkbox" class="common" name="price" value="120000-1000000">&nbsp;&nbsp;Above Rs. 70,000<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleft2">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="brand" onclick="displayDiv2()"></i>&nbsp;Brands
+                <input type="submit" value="clear" class="common" id="bt2" onclick="uncheckAllDiv2()">
+            </div>
+            <div class="sideleft12" id="sideleft12">
+                    <input type="checkbox" class="common" name="brand" value="Acer">&nbsp;&nbsp;Acer<br>
+                    <input type="checkbox" class="common" name="brand" value="Apple">&nbsp;&nbsp;Apple<br>
+                    <input type="checkbox" class="common" name="brand" value="Asus">&nbsp;&nbsp;Asus<br>
+                    <input type="checkbox" class="common" name="brand" value="Datamini">&nbsp;&nbsp;Datamini<br>
+                    <input type="checkbox" class="common" name="brand" value="Dell">&nbsp;&nbsp;Dell<br>
+                    <input type="checkbox" class="common" name="brand" value="Fujitsu">&nbsp;&nbsp;Fujitsu<br>
+                    <input type="checkbox" class="common" name="brand" value="HCL">&nbsp;&nbsp;HCL<br>
+                    <input type="checkbox" class="common" name="brand" value="HP">&nbsp;&nbsp;HP<br>
+                    <input type="checkbox" class="common" name="brand" value="LG">&nbsp;&nbsp;LG<br>
+                    <input type="checkbox" class="common" name="brand" value="Lenovo">&nbsp;&nbsp;Lenovo<br>
+                    <input type="checkbox" class="common" name="brand" value="Micromax">&nbsp;&nbsp;Micromax<br>
+                    <input type="checkbox" class="common" name="brand" value="Notion INK">&nbsp;&nbsp;Notion INK<br>
+                    <input type="checkbox" class="common" name="brand" value="RDP">&nbsp;&nbsp;RDP<br>
+                    <input type="checkbox" class="common" name="brand" value="Samsung">&nbsp;&nbsp;Samsung<br>
+                    <input type="checkbox" class="common" name="brand" value="Sony">&nbsp;&nbsp;Sony<br>
+                    <input type="checkbox" class="common" name="brand" value="Toshiba">&nbsp;&nbsp;Toshiba<br>
+                    <input type="checkbox" class="common" name="brand" value="Venturer">&nbsp;&nbsp;Venturer<br>
+                    <input type="checkbox" class="common" name="brand" value="Wipro">&nbsp;&nbsp;Wipro<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <!-- <div class="sideleft3">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="type" onclick="displayDiv3()"></i>&nbsp;Type
+                <input type="submit" value="clear" class="common" id="bt3" onclick="uncheckAllDiv3()">
+            </div>
+            <div class="sideleft13" id="sideleft13">
+                    <input type="checkbox" class="common" name="type" value="1">&nbsp;&nbsp;Hybrid<br>
+                    <input type="checkbox" class="common" name="type" value="2">&nbsp;&nbsp;Netbook<br>
+                    <input type="checkbox" class="common" name="type" value="3">&nbsp;&nbsp;Ultrabook<br>
+            </div>
+
+            <div style="height:2px"></div> -->
+
+            <div class="sideleft4">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="screen" onclick="displayDiv4()"></i>&nbsp;Screen
+                <input type="submit" value="clear" class="common" id="bt4" onclick="uncheckAllDiv4()">
+            </div>
+            <div class="sideleft14" id="sideleft14">
+                    <input type="checkbox" class="common" name="screen" value="Yes">&nbsp;&nbsp;Touch Screen<br>
+                    <input type="checkbox" class="common" name="screen" value="0-12">&nbsp;&nbsp;12 inch & Below<br>
+                    <input type="checkbox" class="common" name="screen" value="12-13">&nbsp;&nbsp;12 inch - 13 inch<br>
+                    <input type="checkbox" class="common" name="screen" value="13-14">&nbsp;&nbsp;13 inch - 14 inch<br>
+                    <input type="checkbox" class="common" name="screen" value="14-15">&nbsp;&nbsp;14 inch - 15 inch<br>
+                    <input type="checkbox" class="common" name="screen" value="15-16">&nbsp;&nbsp;15 inch - 16 inch<br>
+                    <input type="checkbox" class="common" name="screen" value="16-100">&nbsp;&nbsp;16 inch & Above<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleft5">
+                <i class="fa fa-sort-desc" aria-hidden="true" onclick="displayDiv5()"></i>&nbsp;Screen Resolution
+                <input type="submit" value="clear" class="common" id="sr" onclick="uncheckAllDiv5()">
+            </div>
+            <div class="sideleft15" id="sideleft15">
+                    <input type="checkbox" class="common" name="screenresolution" value="1024 * 600 pixels">&nbsp;&nbsp;1024 * 600 pixels<br>
+                    <input type="checkbox" class="common" name="screenresolution" value="1366 * 768 pixels">&nbsp;&nbsp;1366 * 768 pixels<br>
+                    <input type="checkbox" class="common" name="screenresolution" value="1600 * 900 pixels">&nbsp;&nbsp;1600 * 900 pixels<br>
+                    <input type="checkbox" class="common" name="screenresolution" value="1920 * 1080 pixels">&nbsp;&nbsp;1920 * 1080 pixels<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleft6">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="cpu" onclick="displayDiv6()"></i>&nbsp;CPU
+                <input type="submit" value="clear" class="common" id="bt6" onclick="uncheckAllDiv6()">
+            </div>
+            <div class="sideleft16" id="sideleft16">
+                    <input type="checkbox" class="common" name="cpu" value="Quad Core">&nbsp;&nbsp;Quad Core<br>
+                    <input type="checkbox" class="common" name="cpu" value="AMD">&nbsp;&nbsp;AMD<br>
+                    <input type="checkbox" class="common" name="cpu" value="Intel">&nbsp;&nbsp;Intel<br>
+                    <input type="checkbox" class="common" name="cpu" value="Intel Core i3">&nbsp;&nbsp;Intel Core i3<br>
+                    <input type="checkbox" class="common" name="cpu" value="Intel Core i5">&nbsp;&nbsp;Intel Core i5<br>
+                    <input type="checkbox" class="common" name="cpu" value="Intel Core i7">&nbsp;&nbsp;Intel Core i7<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleft7">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="cpus" onclick="displayDiv7()"></i>&nbsp;CPU Speed
+                <input type="submit" value="clear" class="common" id="bt7" onclick="uncheckAllDiv7()">
+            </div>
+            <div class="sideleft17" id="sideleft17">
+                    <input type="checkbox" class="common" name="cpug" value="1.5">&nbsp;&nbsp;1.5 GHz & Above<br>
+                    <input type="checkbox" class="common" name="cpug" value="2.0">&nbsp;&nbsp;2 GHz & Above<br>
+                    <input type="checkbox" class="common" name="cpug" value="2.5">&nbsp;&nbsp;2.5 Ghz & Above<br>
+                    <input type="checkbox" class="common" name="cpug" value="3.0">&nbsp;&nbsp;3 GHz & Above<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleft8">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="cpug" onclick="displayDiv8()"></i>&nbsp;CPU Generation
+                <input type="submit" value="clear" class="common" id="bt8" onclick="uncheckAllDiv8()">
+            </div>
+            <div class="sideleft18" id="sideleft18">
+                    <input type="checkbox" class="common" name="cpus" value="3rd Gen">&nbsp;&nbsp;Intel 3rd Gen<br>
+                    <input type="checkbox" class="common" name="cpus" value="4th Gen">&nbsp;&nbsp;Intel 4th Gen<br>
+                    <input type="checkbox" class="common" name="cpus" value="5th Gen">&nbsp;&nbsp;Intel 5th Gen<br>
+                    <input type="checkbox" class="common" name="cpus" value="6th Gen">&nbsp;&nbsp;Intel 6th Gen<br>
+                    <input type="checkbox" class="common" name="cpus" value="7th Gen">&nbsp;&nbsp;Intel 7th Gen<br>
+                    <input type="checkbox" class="common" name="cpus" value="8th Gen">&nbsp;&nbsp;Intel 8th Gen<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleft9">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="hdr" onclick="displayDiv9()"></i>&nbsp;Hard Disc RPM
+                <input type="submit" value="clear" class="common" id="bt9" onclick="uncheckAllDiv9()">
+            </div>
+            <div class="sideleft19" id="sideleft19">
+                    <input type="checkbox" class="common" name="rpm" value="1600 RPM">&nbsp;&nbsp;1600 RPM<br>
+                    <input type="checkbox" class="common" name="rpm" value="3500 RPM">&nbsp;&nbsp;3500 RPM<br>
+                    <input type="checkbox" class="common" name="rpm" value="54 RPM">&nbsp;&nbsp;54 RPM<br>
+                    <input type="checkbox" class="common" name="rpm" value="5400 RPM">&nbsp;&nbsp;5400 RPM<br>
+                    <input type="checkbox" class="common" name="rpm" value="7200 RPM">&nbsp;&nbsp;7200 RPM<br>
+                    <input type="checkbox" class="common" name="rpm" value="7400 RPM">&nbsp;&nbsp;7400 RPM<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleft10">
+                <i class="fa fa-sort-desc" aria-hidden="true" onclick="displayDiv10()"></i>&nbsp;Hard Disc
+                <input type="submit" value="clear" class="common" id="bt10" onclick="uncheckAllDiv10()">
+            </div>
+            <div class="sideleft110" id="sideleft110">
+                    <input type="checkbox" class="common" name="hd" value="320 GB">&nbsp;&nbsp;320 GB & Above<br>
+                    <input type="checkbox" class="common" name="hd" value="500 GB">&nbsp;&nbsp;500 GB & Above<br>
+                    <input type="checkbox" class="common" name="hd" value="720 GB">&nbsp;&nbsp;720 GB & Above<br>
+                    <input type="checkbox" class="common" name="hd" value="1 TB">&nbsp;&nbsp;1 TB & Above<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleftram">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="ram" onclick="displayDivram()"></i>&nbsp;RAM
+                <input type="submit" value="clear" class="common" id="btram" onclick="uncheckAllDivram()">
+            </div>
+            <div class="sideleftram1" id="sideleftram1">
+                    <input type="checkbox" class="common" name="ram" value="2 GB">&nbsp;&nbsp;2 GB & Above<br>
+                    <input type="checkbox" class="common" name="ram" value="3 GB">&nbsp;&nbsp;3 GB & Above<br>
+                    <input type="checkbox" class="common" name="ram" value="4 GB">&nbsp;&nbsp;4 GB & Above<br>
+                    <input type="checkbox" class="common" name="ram" value="6 GB">&nbsp;&nbsp;6 GB & Above<br>
+                    <input type="checkbox" class="common" name="ram" value="8 GB">&nbsp;&nbsp;8 GB & Above<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleftgraphics">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="gr" onclick="displayDivgraphics()"></i>&nbsp;Graphics
+                <input type="submit" value="clear" class="common" id="btgraphics" onclick="uncheckAllDivgraphics()">
+            </div>
+            <div class="sideleftgraphics1" id="sideleftgraphics1">
+                    <input type="checkbox" class="common" name="graphics" value="YES">&nbsp;&nbsp;Dedicated Graphics<br>
+                    <input type="checkbox" class="common" name="graphics" value="1 GB">&nbsp;&nbsp;1 GB & Above<br>
+                    <input type="checkbox" class="common" name="graphics" value="1.5 GB">&nbsp;&nbsp;1.5 GB & Above<br>
+                    <input type="checkbox" class="common" name="graphics" value="2 GB">&nbsp;&nbsp;2 GB & Above<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleftfeatures">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="fe" onclick="displayDivfeatures()"></i>&nbsp;Features
+                <input type="submit" value="clear" class="common" id="btfeatures" onclick="uncheckAllDivfeatures()">
+            </div>
+            <div class="sideleftfeatures1" id="sideleftfeatures1">
+                    <input type="checkbox" class="common" name="features" value="1">&nbsp;&nbsp;Backlit Keyboard<br>
+                    <input type="checkbox" class="common" name="features" value="2">&nbsp;&nbsp;HDMI<br>
+                    <input type="checkbox" class="common" name="features" value="3">&nbsp;&nbsp;Optical Drive<br>
+                    <input type="checkbox" class="common" name="features" value="4">&nbsp;&nbsp;SSD<br>
+                    <input type="checkbox" class="common" name="features" value="5">&nbsp;&nbsp;USB 3.0<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleftos">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="os" onclick="displayDivos()"></i>&nbsp;OS
+                <input type="submit" value="clear" class="common" id="btos" onclick="uncheckAllDivos()">
+            </div>
+            <div class="sideleftos1" id="sideleftos1">
+                    <input type="checkbox" class="common" name="os" value="None">&nbsp;&nbsp;None<br>
+                    <input type="checkbox" class="common" name="os" value="Chrome OS">&nbsp;&nbsp;Chrome OS<br>
+                    <input type="checkbox" class="common" name="os" value="DOS">&nbsp;&nbsp;DOS<br>
+                    <input type="checkbox" class="common" name="os" value="Linux">&nbsp;&nbsp;Linux<br>
+                    <input type="checkbox" class="common" name="os" value="Mac">&nbsp;&nbsp;Mac<br>
+                    <input type="checkbox" class="common" name="os" value="Ubuntu">&nbsp;&nbsp;Ubuntu<br>
+                    <input type="checkbox" class="common" name="os" value="Windows 10">&nbsp;&nbsp;Windows 10<br>
+                    <input type="checkbox" class="common" name="os" value="Windows 8">&nbsp;&nbsp;Windows 8<br>
+                    <input type="checkbox" class="common" name="os" value="Windows 7">&nbsp;&nbsp;Windows 7<br>
+                    <input type="checkbox" class="common" name="os" value="Windows RT">&nbsp;&nbsp;Windows RT<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleftbb">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="bb" onclick="displayDivbb()"></i>&nbsp;Battary BackUp
+                <input type="submit" value="clear" id="btbb" class="common" onclick="uncheckAllDivbb()">
+            </div>
+            <div class="sideleftbb1" id="sideleftbb1">
+                    <input type="checkbox" class="common" name="bb" value="3 Hours">&nbsp;&nbsp;3 Hours & Above<br>
+                    <input type="checkbox" class="common" name="bb" value="5 Hours">&nbsp;&nbsp;5 Hours & Above<br>
+                    <input type="checkbox" class="common" name="bb" value="7 Hours">&nbsp;&nbsp;7 Hours & Above<br>
+                    <input type="checkbox" class="common" name="bb" value="9 Hours">&nbsp;&nbsp;9 Hours & Above<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleftw">
+                <i class="fa fa-sort-desc" aria-hidden="true" id="w" onclick="displayDivw()"></i>&nbsp;Weight
+                <input type="submit" value="clear" class="common" id="btw" onclick="uncheckAllDivw()">
+            </div>
+            <div class="sideleftw1" id="sideleftw1">
+                    <input type="checkbox" class="common" name="w" value="1.5 Kg">&nbsp;&nbsp;1.5 Kg & Below<br>
+                    <input type="checkbox" class="common" name="w" value="2.0 Kg">&nbsp;&nbsp;2 Kg & Below<br>
+                    <input type="checkbox" class="common" name="w" value="2.5 Kg">&nbsp;&nbsp;2.5 Kg & Below<br>
+                    <input type="checkbox" class="common" name="w" value="3.0 Kg">&nbsp;&nbsp;3 Kg & Below<br>
+            </div>
+
+            <div style="height:2px"></div>
+
+            <div class="sideleftclear">
+                <input type="submit" value="clear all filters" class="common" onclick="uncheckAll()">
+            </div>
+        </div>
+    <!-- </div> -->
+</body>
+</html>

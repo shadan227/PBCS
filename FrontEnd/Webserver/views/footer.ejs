@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Footer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/Header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../javascripts/topbt.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+       <div class="row">
+           <div class="col-sm-10 col-md-10 col-lg-10"></div>
+           <div class="col-sm-2 col-md-2 col-lg-2">
+               <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i>&nbsp;Top</button>
+           </div>
+       </div>
+       <!-- <div class="row oo"></div> -->
+        <div class="row headf">
+            <div class="col-sm-3 col-md-3 col-lg-3"></div>
+            <div class="col-sm-6 col-md-6 col-lg-6 mid">
+                &copy;&nbsp;&nbsp;2017-18&nbsp;&nbsp;- &nbsp;&nbsp;prioritylappi.com,&nbsp;&nbsp;All rights reserved&nbsp;&nbsp;|&nbsp;&nbsp;Privacy Policy&nbsp;&nbsp;|&nbsp;&nbsp;Terms of service
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-md-5 col-lg-5"></div>
+            <div class="col-sm-1 col-md-1 col-lg-1 b">
+               <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+               <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                Feedack</a>
+            </div>
+            <div class="col-sm-1 col-md-1 col-lg-1 b">
+               <a href="#" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">
+               <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                Report</a>
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5"></div>
+        </div>
+    </div>
+
+<!--making a form on z-index for feedback-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="exampleModalLabel">Your Feedback</h4>
+                            </div>
+                            <form action="/fk" name="feedback" method="post">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Name:</label>
+                                            <input type="text"  class="form-control" id="recipient-name" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Email:</label>
+                                        <input type="email" class="form-control" id="recipient-email" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Contact No.:</label>
+                                        <input type="text" maxlength="10"  pattern="[0-9]{10}" class="form-control" id="recipient-mob" required="" name="mob">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Feedback*:</label>
+                                        <textarea class="form-control" id="message-text" name="request"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+<!--making a form on z-index for report-->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="exampleModalLabel">Report An Error</h4>
+                            </div>
+                            <form action="/users/report" name="error" method="post">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Name:</label>
+                                            <input type="text"  class="form-control" id="recipient-name" required="" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Email:</label>
+                                        <input type="email" class="form-control" id="recipient-email" required="" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Contact No.:</label>
+                                        <input type="text" maxlength="10"  pattern="[0-9]{10}"class="form-control" id="recipient-mob" required="" name="mob">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Subject:</label>
+                                            <select name="subject" class="form-control" required="">
+                                                <option value="-1" disabled="on" selected>--------------- Select ---------------</option>
+                                                <option value="ip">Incorrect Price</option>
+                                                <option value="imp">Incorrect/ missing product details</option>
+                                                <option value="cnw">Coupon not working</option>
+                                                <option value="fwe">Founf lowest price somewhere else</option>
+                                                <option value="jaf">Just a feedback</option>
+                                                <option value="ai">Another Issue</option>
+                                            </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">Description*:</label>
+                                        <textarea class="form-control" id="message-text" required="" name="request"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+</body>
+</html>

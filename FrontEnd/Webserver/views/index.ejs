@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/Header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <%
+  var l = pp.length;
+  %>
+    <% include header %>
+    <div class="container-fluid mn">
+      <% include sidebar.ejs %>
+        <div class="side1">
+          <div class="sidebarright">
+            Laptops
+          </div>
+          <br>
+          <% for(var i=0 ; i<l ; i++)
+          {
+            var ob = JSON.stringify(pp[i].specifications.full_specs);
+            var ob1 = JSON.parse(ob);
+            %>
+          <div class="product">
+            <div class="left_product">
+              <center><a href="http://localhost:3000/pro/<%=pp[i].key%>"><img src="<%=pp[i].img%>" alt="no laptop" width="100" height="100"></a></center>
+            </div>
+            <div class="mid_product">
+              <div class="mid_product_up">
+                <a href="http://localhost:3000/pro/<%=pp[i].key%>" class="nm"><%=pp[i].name%></a>
+              </div>
+              <div class="mid_product_down">
+                <div class="mid_product_down_up">
+                  <div class="mid_product_down_up_left">
+                    <b>Product Features:</b>
+                  </div>
+                  <div class="mid_product_down_up_right">
+                    <a href="http://localhost:3000/pro/<%=pp[i].key%>">See Full Specifications</a>
+                  </div>
+                </div>
+                <div style="height:2px"></div>
+                <div class="mid_product_down_down">
+                  <div class="mid_product_down_down_left">
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<%=ob1.Processor.Processor%>
+                    <br>
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<%=ob1.Processor.Speed%> Clock Speed
+                    <br>
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<%=ob1.Memory.RAM%> RAM
+                    <br>
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<%=ob1.Memory['Hard Disk Capacity']%> Hard Disk
+                  </div>
+                  <div class="mid_product_down_down_right">
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<%
+                    if(ob1.Graphics!=undefined)
+                    {
+                    %>
+                    <%= ob1.Graphics.GPU %>
+                    <%}else{%>
+                      <%= ob1.Battery['Battery Backup'] %> Battery Backup
+                  <%}%>
+                    <br>
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<%=ob1.Display.Size%>, <%=ob1.Display.Resolution%>
+                    <br>
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<%=ob1.General.OS%> OS
+                    <br>
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<%=ob1.General.Warranty%>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="right_product">
+              <div class="right_product_up">
+                <center><b>Rs. <%=pp[i].price%></b></center>
+              </div>
+              <div class="right_product_down">
+                <center><button type="button" id="comp" name="compare"><i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;compare</button></center>
+              </div>
+            </div>
+          </div>
+          <div style="height:2px"></div>
+          <%}%>
+          <center>
+          <%
+          console.log("Pages in front "+pages);
+          if (pages > 0) { %>
+                <ul class="pagination text-center">
+                    <% if (current == 1) { %>
+                        <li class="disabled"><a>First</a></li>
+                    <% } else { %>
+                        <li><a href="/1">First</a></li>
+                    <% } %>
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                            <li class="active"><a><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href="/<%= i %>"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="disabled"><a>...</a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (current == pages) { %>
+                        <li class="disabled"><a>Last</a></li>
+                    <% } else { %>
+                        <li><a href="/<%= pages %>">Last</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+          </center>
+          </div>
+          </div>
+
+          <div style="height:3px"></div>
+          <% include footer %>
+          </body>
+</html>
