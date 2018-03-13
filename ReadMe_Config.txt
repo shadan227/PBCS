@@ -17,4 +17,3 @@ npm install -g nodemon
 npm config get prefix
 
 set PATH=%PATH%;pefix;               //Instead of prefix, paste the output of the last instruction
-
