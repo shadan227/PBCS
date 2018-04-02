@@ -1,0 +1,43 @@
+>>> len(Processor)
+13
+>>> len(Speed)
+13
+>>> len(Cache)
+5
+>>> len(CPU_Score)
+0
+>>> len(RAM)
+7
+>>> len(Maximum_Ram_Supported)
+3
+>>> len(RAM_Slots)
+2
+>>> len(Hard_Disk_Capacity)
+3
+>>> len(Hard_Disk_Speed)
+1
+>>> len(RAM_Bus_Speed)
+4
+>>> len(Solid_State_Drive)
+1
+>>> len(Hard_Disk_Interface)
+0
+>>> len(GPU)
+21
+>>> len(Dedicated_Memory)
+0
+>>> len(Battery)
+3
+>>> len(Battery_Backup)
+5
+>>> len(Adapter_Type)
+7
+>>> len(Keyboard_Backlit)
+1
+>>> len(Pointer_Device)
+4
+>>> len(Optical_Drive)
+3
+>>> len(Optical_Drive_Speed)
+2
+

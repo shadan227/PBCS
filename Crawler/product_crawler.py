@@ -40,7 +40,7 @@ def run(half_link):
     specifications = {}
     specifications['full_specs'] = process_full_specs(specs_table_left, specs_table_right)
     product['name'] = soup.find('h1', itemprop= 'name').get_text()
-    product['price'] = soup.find('span', class_ = 'price').get_text()
+    product['price'] = "".join(soup.find('span', class_ = 'price').get_text()[4:].split(","))
     product['brand'] = product['name'].split(' ')[0]
     product['tags'] = link[34:].split('-')
     product['img'] = 'https://img2.smartprix.com/laptops/' + product['tags'][-1][1:] + '/n-1.jpg'
