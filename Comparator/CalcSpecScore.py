@@ -16,38 +16,40 @@ def CalcAttributeScore(SubAttribute):
             SpecScore[SubAttributeName] = AttributeScore
         except: pass
 
-def CalcSpecScore(Product):
+def CalcSpecScore(key):
+    Product = products.find({"key":key})[0]
+
     Attribute = Product['specifications']['full_specs']
     ########################GRAPHICS#####################
     SubAttribute = Attribute['Graphics']
     CalcAttributeScore(SubAttribute)
-    
+
     ########################MEMORY#####################
     SubAttribute = Attribute['Memory']
     CalcAttributeScore(SubAttribute)
-    
+
     ########################PROCESSOR#####################
     SubAttribute = Attribute['Processor']
     CalcAttributeScore(SubAttribute)
-    
+
     ########################INPUT#####################
     SubAttribute = Attribute['Input']
     CalcAttributeScore(SubAttribute)
-    
+
     ########################BATTERY#####################
     SubAttribute = Attribute['Battery']
     CalcAttributeScore(SubAttribute)
-    
+
     ########################DISPLAY#####################
     SubAttribute = Attribute['Display']
     CalcAttributeScore(SubAttribute)
-    
+
     ########################CONNECTIVITY#####################
     SubAttribute = Attribute['Connectivity']
     CalcAttributeScore(SubAttribute)
-    
+
     ########################INPUT#####################
     SubAttribute = Attribute['Input']
     CalcAttributeScore(SubAttribute)
-    
+
     return SpecScore
