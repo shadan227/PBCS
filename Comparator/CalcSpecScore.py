@@ -7,7 +7,7 @@ products = db['products']
 #Product = products.find()[0]
 
 SpecScore = {}
-def CalcAttributeScore(SubAttribute):
+def calcAttributeScore(SubAttribute):
     for SubAttributeName in SubAttribute.keys():
         try:
             Collection = SubAttributeName+' Score'
@@ -16,40 +16,40 @@ def CalcAttributeScore(SubAttribute):
             SpecScore[SubAttributeName] = AttributeScore
         except: pass
 
-def CalcSpecScore(key):
+def calcSpecScore(key):
     Product = products.find({"key":key})[0]
 
     Attribute = Product['specifications']['full_specs']
     ########################GRAPHICS#####################
     SubAttribute = Attribute['Graphics']
-    CalcAttributeScore(SubAttribute)
+    calcAttributeScore(SubAttribute)
 
     ########################MEMORY#####################
     SubAttribute = Attribute['Memory']
-    CalcAttributeScore(SubAttribute)
+    calcAttributeScore(SubAttribute)
 
     ########################PROCESSOR#####################
     SubAttribute = Attribute['Processor']
-    CalcAttributeScore(SubAttribute)
+    calcAttributeScore(SubAttribute)
 
     ########################INPUT#####################
     SubAttribute = Attribute['Input']
-    CalcAttributeScore(SubAttribute)
+    calcAttributeScore(SubAttribute)
 
     ########################BATTERY#####################
     SubAttribute = Attribute['Battery']
-    CalcAttributeScore(SubAttribute)
+    calcAttributeScore(SubAttribute)
 
     ########################DISPLAY#####################
     SubAttribute = Attribute['Display']
-    CalcAttributeScore(SubAttribute)
+    calcAttributeScore(SubAttribute)
 
     ########################CONNECTIVITY#####################
     SubAttribute = Attribute['Connectivity']
-    CalcAttributeScore(SubAttribute)
+    calcAttributeScore(SubAttribute)
 
     ########################INPUT#####################
     SubAttribute = Attribute['Input']
-    CalcAttributeScore(SubAttribute)
+    calcAttributeScore(SubAttribute)
 
     return SpecScore
