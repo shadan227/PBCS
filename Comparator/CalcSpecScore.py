@@ -2,6 +2,7 @@
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client['test']
+db2 = client['Attributes']
 products = db['products']
 
 #Product = products.find()[0]
@@ -12,7 +13,7 @@ def calcAttributeScore(SubAttribute):
         try:
             Collection = SubAttributeName+' Score'
             AttributeValue = SubAttribute[SubAttributeName]
-            AttributeScore = db[Collection].find({"Name":AttributeValue})[0]['Score']
+            AttributeScore = db2[Collection].find({"Name":AttributeValue})[0]['Score']
             SpecScore[SubAttributeName] = AttributeScore
         except: pass
 
@@ -46,10 +47,6 @@ def calcSpecScore(key):
 
     ########################CONNECTIVITY#####################
     SubAttribute = Attribute['Connectivity']
-    calcAttributeScore(SubAttribute)
-
-    ########################INPUT#####################
-    SubAttribute = Attribute['Input']
     calcAttributeScore(SubAttribute)
 
     return SpecScore
