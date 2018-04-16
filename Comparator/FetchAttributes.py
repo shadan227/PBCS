@@ -15,27 +15,10 @@ import xlrd
 #           'Solid State Drive', 'Hard Disk Interface', 'GPU', 'Dedicated Memory', 'Battery',
 
 def insertAttribute(Collection, Attribute):
-#    exists = False
-#     ************ ERATE EXCEL SHEETS FOR FAST DATA INSERTION *********
-#    try:
-#        attribute_book = xlrd.open_workbook('Data/'+Collection+'.xls')
-#        sheet = book.sheet_by_index(0)
-#        ROW = sheet.nrows
-#    except:
-#        attribute_book = xlwt.Workbook()
-#        Sheet = attribute_book.add_sheet('Sheet')
-#        ROW = 0
-#
-#    print("ROW:", ROW)
     Attribute_Score = {}
     for item in Attribute:
         if Attributes[Collection].find_one({'Name':item}) != None: continue
         Attributes[Collection].insert([{'Name': item,'Score': 0, 'Criticality': 'VERY LOW'}])
-#        Sheet.write(ROW, 0, item)
-#        Sheet.write(ROW, 1, 0)
-#        Sheet.write(ROW, 2, 'VERY LOW')
-#        ROW+=1
-#    attribute_book.save('Data/'+Collection+'.xls')
 
 
 ############################PROCESSOR################################

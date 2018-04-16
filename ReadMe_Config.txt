@@ -11,6 +11,7 @@ pip install requests
 pip install bs4
 pip install xlrd
 pip install xlwt
+pip install tabulate
 
 npm -v
 npm install
