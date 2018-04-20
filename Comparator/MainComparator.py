@@ -14,7 +14,7 @@ def main_comparator(keys):
 #        print('\n\nkey: '+key)
         #print(calcSpecScore(key))
         product_scores[key] = round(calcSpecScore(key),3)
-        
+
 
 main_comparator(keys)
 #print(" ".join([str(i) for i in product_scores.values()]))
