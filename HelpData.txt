@@ -1,0 +1,2 @@
+python MainComparator.py "p1301qf5yah4" "p1301iaj4llq" "p13012zjo6ud" "p1301ee42gbu"
+python Prioritise.py "p1301qf5yah4" "p1301iaj4llq" "p13012zjo6ud" "p1301ee42gbu" "RAM Slots" "RAM" "Processor"

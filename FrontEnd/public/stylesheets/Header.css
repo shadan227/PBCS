@@ -3,6 +3,31 @@ body
     background-color: white;
 }
 
+.ex2
+{
+  background-color: white;
+  position: fixed;
+  width: 605px;
+  height: 400px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  display: none;
+}
+
+.searchPro{
+  width: 600px;
+  height: 50px;
+}
+
+tr:hover {
+    background-color: lightblue;
+}
+
+#exam1
+{
+  display: none;
+}
+
 /*header*/
 
 .head
@@ -445,6 +470,21 @@ body
 #comp:hover
 {
   background-color: darkblue;
+}
+
+#comp1
+{
+  background-color: lightblue;
+  height: 40px;
+  color: white;
+  width: 100px;
+  font-weight: bold;
+  display: none;
+}
+
+#comp1:hover
+{
+  background-color: red;
 }
 
 .sideleft1
@@ -1042,6 +1082,7 @@ body
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
+  display: none;
 }
 
 #atc:hover{

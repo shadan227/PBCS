@@ -19,34 +19,46 @@ def calcAttributeScore(SubAttribute):
 
 def calcSpecScore(key):
     Product = products.find({"key":key})[0]
-
     Attribute = Product['specifications']['full_specs']
     ########################GRAPHICS#####################
-    SubAttribute = Attribute['Graphics']
-    calcAttributeScore(SubAttribute)
-
+    try:
+        SubAttribute = Attribute['Graphics']
+        calcAttributeScore(SubAttribute)
+    except: pass
     ########################MEMORY#####################
-    SubAttribute = Attribute['Memory']
-    calcAttributeScore(SubAttribute)
-
+    try:
+        SubAttribute = Attribute['Memory']
+        calcAttributeScore(SubAttribute)
+    except: pass
     ########################PROCESSOR#####################
-    SubAttribute = Attribute['Processor']
-    calcAttributeScore(SubAttribute)
-
+    try:
+        SubAttribute = Attribute['Processor']
+        calcAttributeScore(SubAttribute)
+    except: pass
     ########################INPUT#####################
-    SubAttribute = Attribute['Input']
-    calcAttributeScore(SubAttribute)
-
+    try:
+        SubAttribute = Attribute['Input']
+        calcAttributeScore(SubAttribute)
+    except: pass
     ########################BATTERY#####################
-    SubAttribute = Attribute['Battery']
-    calcAttributeScore(SubAttribute)
-
+    try:
+        SubAttribute = Attribute['Battery']
+        calcAttributeScore(SubAttribute)
+    except: pass
     ########################DISPLAY#####################
-    SubAttribute = Attribute['Display']
-    calcAttributeScore(SubAttribute)
-
+    try:
+        SubAttribute = Attribute['Display']
+        calcAttributeScore(SubAttribute)
+    except: pass
     ########################CONNECTIVITY#####################
-    SubAttribute = Attribute['Connectivity']
-    calcAttributeScore(SubAttribute)
+    try:
+        SubAttribute = Attribute['Connectivity']
+        calcAttributeScore(SubAttribute)
+    except: pass
 
-    return SpecScore
+  #  print('\n\n*******************'+key+'********************')
+#    for a, v in SpecScore.items():
+ #       print(a+':'+str(v))
+    #print(SpecScore.values())
+    #print("Sum: ", sum(SpecScore.values()))
+    return sum(SpecScore.values())

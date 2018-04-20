@@ -12,6 +12,7 @@ pip install bs4
 pip install xlrd
 pip install xlwt
 pip install tabulate
+pip install json
 
 npm -v
 npm install

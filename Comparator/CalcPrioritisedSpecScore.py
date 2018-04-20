@@ -17,10 +17,13 @@ def calcAttributeScore(SubAttribute, attribute_list):
             Collection = SubAttributeName+' Score'
             AttributeValue = SubAttribute[SubAttributeName]
             AttributeScore = db2[Collection].find({"Name":AttributeValue})[0]['Score']
-            AttributeCriticality = db2[Collection].find({"Name":AttributeValue})[0]['Criticality']
             SpecScore[SubAttributeName] = AttributeScore
-            if SubAttributeName in AttributeList:
-                AttributePriority = AttributeList.index(AttributePriority)
+            if SubAttributeName in attribute_list:
+                AttributeCriticality = db2[Collection].find({"Name":AttributeValue})[0]['Criticality']
+ #               print("SubAttributeName: ", SubAttributeName)
+  ##             print("\t--AttributeScore: ", AttributeScore)
+    #            print("\t--AttributeCriticality", AttributeCriticality)
+                AttributePriority = attribute_list.index(SubAttributeName)
                 SpecScore[SubAttributeName] = AttributeScore * Criticality[AttributeCriticality] * Priority[AttributePriority]
         except: pass
 
@@ -28,32 +31,44 @@ def calcPrioritisedSpecScore(key, attribute_list):
     Product = products.find({"key":key})[0]
     Attribute = Product['specifications']['full_specs']
 
-    ########################GRAPHICS#####################
-    SubAttribute = Attribute['Graphics']
-    calcAttributeScore(SubAttribute, attribute_list)
-
-    ########################MEMORY#####################
-    SubAttribute = Attribute['Memory']
-    calcAttributeScore(SubAttribute, attribute_list)
-
-    ########################PROCESSOR#####################
-    SubAttribute = Attribute['Processor']
-    calcAttributeScore(SubAttribute, attribute_list)
-
-    ########################INPUT#####################
-    SubAttribute = Attribute['Input']
-    calcAttributeScore(SubAttribute, attribute_list)
-
-    ########################BATTERY#####################
-    SubAttribute = Attribute['Battery']
-    calcAttributeScore(SubAttribute, attribute_list)
-
-    ########################DISPLAY#####################
-    SubAttribute = Attribute['Display']
-    calcAttributeScore(SubAttribute, attribute_list)
-
-    ########################CONNECTIVITY#####################
-    SubAttribute = Attribute['Connectivity']
-    calcAttributeScore(SubAttribute, attribute_list)
-
-    return SpecScore
+        ########################GRAPHICS#####################
+    try:
+        SubAttribute = Attribute['Graphics']
+        calcAttributeScore(SubAttribute, attribute_list)
+    except: pass
+        ########################MEMORY#####################
+    try:
+        SubAttribute = Attribute['Memory']
+        calcAttributeScore(SubAttribute, attribute_list)
+    except: pass
+        ########################PROCESSOR#####################
+    try:
+        SubAttribute = Attribute['Processor']
+        calcAttributeScore(SubAttribute, attribute_list)
+    except: pass
+        ########################INPUT#####################
+    try:
+        SubAttribute = Attribute['Input']
+        calcAttributeScore(SubAttribute, attribute_list)
+    except: pass
+        ########################BATTERY#####################
+    try:
+        SubAttribute = Attribute['Battery']
+        calcAttributeScore(SubAttribute, attribute_list)
+    except: pass
+        ########################DISPLAY#####################
+    try:
+        SubAttribute = Attribute['Display']
+        calcAttributeScore(SubAttribute, attribute_list)
+    except: pass
+        ########################CONNECTIVITY#####################
+    try:
+        SubAttribute = Attribute['Connectivity']
+        calcAttributeScore(SubAttribute, attribute_list)
+    except: pass
+    #print('\n\n*******************'+key+'********************')
+    #for a, v in SpecScore.items():
+ #       print(a+':'+str(v))
+   # print(SpecScore.values())
+  #  print("Sum: "+str(sum(SpecScore.values())))
+    return sum(SpecScore.values())
