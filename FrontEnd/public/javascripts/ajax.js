@@ -39,9 +39,11 @@ $('document').ready(function(){
         ),
         success: function(response)
         {
-          // alert("We are in ajax");
-          // alert(response);
-          document.write(response);
+          $('#cmp').append('<p>This is the comparison page</P>');
+          // document.write("first "+response[0][a]);
+          // document.write("second "+response[0][b]);
+          // document.write("Third "+response[0][c]);
+          // document.write("Fourth "+response[0][d]);
         }
       });
     }

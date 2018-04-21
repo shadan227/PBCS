@@ -177,14 +177,14 @@ module.exports.compItems = function(req, res, next)
     }
     else {
       console.log("we are return on webserver with result");
-      console.log("web server " +body);
+      // console.log("web server " +body);
       // var tt = body;
       // console.log("value of key 1 is "+tt.key1);
       // var parsedJSON = JSON.parse(tt);
       // console.log(parsedJSON);
       // var tt = body;
       // res.render('comparison',tt);
-      res.json(tt);
+      res.json(body);
     }
   });
 }

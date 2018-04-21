@@ -85,10 +85,10 @@ PythonShell.run('MainComparator.py', options, function (err, results) {
   {
     console.log(err);
   }
-  console.log(results);
+  // console.log(results);
   // console.log("Here is the result");
-  console.log(v1);
-  console.log("Rest API Controller "+results[0][v1]);
+  // console.log(v1);
+  // console.log("Rest API Controller "+results[0][v1]);
   // var tt = results;
   res.json(results);
 });
