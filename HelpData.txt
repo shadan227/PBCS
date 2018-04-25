@@ -1,2 +1,22 @@
 python MainComparator.py "p1301qf5yah4" "p1301iaj4llq" "p13012zjo6ud" "p1301ee42gbu"
 python Prioritise.py "p1301qf5yah4" "p1301iaj4llq" "p13012zjo6ud" "p1301ee42gbu" "RAM Slots" "RAM" "Processor"
+
+Other Keys:
+p13012zjo6ud
+p1301ee42gbu
+p1301025zepe
+p1301c0f05lm
+p13014b2t2k1
+p1301fn85d41
+p130125q7rjj
+p1301ubjsd31
+p13011znvoal
+p1301ktgc5jy
+p1301l1jr8w5
+p13010zzron5
+p1301f1xe7ad
+p130127w53ew
+p1301qf5yah4
+p1301iaj4llq
+p1301bgibfsw
+p1301gmnyw5t

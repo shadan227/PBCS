@@ -8,7 +8,7 @@ products = db['products']
 #Product = products.find()[0]
 
 Criticality = {'VERY LOW':1.1, 'LOW': 1.3, 'MEDIUM':1.5,'HIGH':1.7, 'VERY HIGH':2}
-Priority = {1:1.414, 2:1.303, 3:1.225, 4:1.401, 5:1.049}
+Priority = {0:1.414, 1:1.303, 2:1.225, 3:1.401, 4:1.049}
 
 SpecScore = {}
 def calcAttributeScore(SubAttribute, attribute_list):
