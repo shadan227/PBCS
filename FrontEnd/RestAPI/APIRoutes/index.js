@@ -14,6 +14,10 @@ router.post('/key_i', control.key_i);
 
 router.post('/filter', control.filter);
 
+router.post('/filter1', control.filter1);
+
+router.post('/filter2', control.filter2);
+
 router.post('/search', control.search);
 
 router.post('/compItems', control.compItems);

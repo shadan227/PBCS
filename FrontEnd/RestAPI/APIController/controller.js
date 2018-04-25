@@ -85,14 +85,23 @@ PythonShell.run('MainComparator.py', options, function (err, results) {
   {
     console.log(err);
   }
-  // console.log(results);
-  // console.log("Here is the result");
-  // console.log(v1);
-  // console.log("Rest API Controller "+results[0][v1]);
   // var tt = results;
-  res.json(results);
+  // res.json(results);
+  product.find().where({key:{$in:[v1,v2,v3,v4]}}).exec(function(error, result){
+    if(error)
+    {
+      sendJSONresponse(res, 406, error);
+    }
+    else {
+      // console.log("Here in rest API");
+      // console.log("Inside");
+      // console.log(tt);
+      var rr = {aa:results, bb:result};
+      // console.log(rr);
+      res.json(rr);
+    }
+  });
 });
-
 }
 
 module.exports.filter = function(req, res, next)
@@ -100,48 +109,10 @@ module.exports.filter = function(req, res, next)
   // console.log("we are here in filter api");
   var parr = req.body.pr;
   var brand = req.body.brand;
-  var scn = req.body.scn;
-  var screenresolution = req.body.screenresolution;
-  var cpu = req.body.cpu;
-  var rpm = req.body.rpm;
-  var hd = req.body.hd;
-  var ram = req.body.ram;
-  var os = req.body.os;
-  var battery = req.body.battery;
 
   var parrl = parr.length;
   var brandl = brand.length;
-  var scnl = scn.length;
-  var screenresolutionl = screenresolution.length;
-  var cpul = cpu.length;
-  var rpml = rpm.length;
-  var hdl = hd.length;
-  var raml = ram.length;
-  var osl = os.length;
-  var batteryl = battery.length;
 
-  console.log(parr);
-
-  // console.log("price length is "+parrl);
-  // console.log("brand length is "+brandl);
-  // console.log("price "+parr);
-  // console.log("brand "+brand);
-  // console.log("screen "+scn);
-  // console.log("screenresolution "+screenresolution);
-  // console.log("cpu "+cpu);
-  // console.log("rpm "+rpm);
-  // console.log("hd "+hd);
-  // console.log("ram "+ram);
-  // console.log("os "+os);
-  // console.log("battery "+battery);
-
-  if((parrl == 0 && brandl == 0 && scnl == 0 && screenresolutionl == 0 && cpul == 0 && rpml == 0 && hdl == 0 && raml == 0 && osl == 0 && batteryl == 0) ||
-  (parrl == 8 && brandl == 18 && scnl == 7 && screenresolutionl == 4 && cpul == 6 && rpml == 5 && hdl == 4 && raml == 5 && osl == 9 && batteryl == 4))
-  {
-    console.log("API SUCCESS");
-    res.json({STATUS:"SUCCESS"});
-  }
-  else {
     // console.log("I am here with filtering 1");
     // console.log(scn);
     // console.log(scn[0]+" "+scn[1]+" "+scn[scnl-1]);
@@ -161,24 +132,56 @@ module.exports.filter = function(req, res, next)
     // product.find({$or:[{"specifications.full_specs.Memory.RAM": {$in:ram}}, {"specifications.full_specs.Memory.RAM": {$gte:ram[0]}}]})
     // console.log(os);
     // product.find({"specifications.full_specs.General.OS": {$in:os}})
-    console.log(battery);
-    product.find({"specifications.full_specs.Battery.Battery Backup":{$in:battery}}).exec(function(error, result){
+    // console.log(parr);
+    // console.log(parr[0]);
+    // console.log(parr[parrl-1]);
+    product.find({price:{$gte:parr[0], $lte:parr[parrl-1]}}).exec(function(error, result){
       if(error){
         console.log("here is an error in filtering");
       }
       else {
-        // console.log(result);
-        var l1 = result.length;
-            // console.log("Result after filtering is ");
-            // console.log(result);
-            // console.log(cpu);
-                    console.log(l1);
-            // console.log("I am here with filtering 2");
-            // console.log("API SUCCESSOR");
-            res.json({STATUS:"SUCCESSOR"});
+            // console.log("Rest API with only price result "+result);
+            res.json(result);
       }
     });
-  }
+}
+
+module.exports.filter1 = function(req, res, next)
+{
+  // console.log("we are here in filter api");
+  var parr = req.body.pr;
+  var brand = req.body.brand;
+
+  var parrl = parr.length;
+  var brandl = brand.length;
+    product.find({price:{$gt:parr[0], $lt:parr[parrl-1]}}).find({brand:{$in: brand}}).exec(function(error, result){
+      if(error){
+        console.log("here is an error in filtering");
+      }
+      else {
+            // console.log("Rest API with brand and price result  "+result);
+            res.json(result);
+      }
+    });
+}
+
+module.exports.filter2 = function(req, res, next)
+{
+  // console.log("we are here in filter api");
+  var parr = req.body.pr;
+  var brand = req.body.brand;
+
+  var parrl = parr.length;
+  var brandl = brand.length;
+    product.find({brand:{$in: brand}}).exec(function(error, result){
+      if(error){
+        console.log("here is an error in filtering");
+      }
+      else {
+            // console.log("Rest API with only brand result "+result);
+            res.json(result);
+      }
+    });
 }
 
 module.exports.search = function(req, res, next)

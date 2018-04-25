@@ -18,8 +18,9 @@
   var l = pp.length;
   %>
       <% include header %>
+        <div id="cmp">
 
-
+        </div>
     <center>
         <div id="myModal" class="modal fade" role="dialog">
            <div class="modal-dialog">
@@ -72,13 +73,13 @@
          </div>
      </center>
 
-
-    <div class="container-fluid mn">
+    <div id="sidemid" class="container-fluid mn">
       <% include sidebar.ejs %>
         <div class="side1">
           <div class="sidebarright">
             Laptops
           </div>
+          <div id="fill">
           <br>
           <% for(var i=0 ; i<l ; i++)
           {
@@ -182,8 +183,10 @@
             <% } %>
           </center>
           </div>
+                    </div>
           </div>
 
           <div style="height:3px"></div>
           <% include footer %>
           </body>
+          </html>

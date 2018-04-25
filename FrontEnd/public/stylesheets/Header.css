@@ -3,6 +3,11 @@ body
     background-color: white;
 }
 
+#zcmp
+{
+    display: none;
+}
+
 .ex2
 {
   background-color: white;

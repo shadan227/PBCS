@@ -772,13 +772,27 @@ $(document).click(function(event) {
     }
 });
 
-$('#lt').click(function(){
-  $("#lt").off('click');
-  $('#drp1').show();
-  // $('#lt').on('click', function(){
-  //   alert("Again enabled");
-  // });
-});
+setTimeout(() => {
+  $('#lt').click(() => {
+    alert("I am Here");
+    // $("#lt").off('click');
+    $('#drp1').show();
+  });
+}, 10);
+
+// $(document).on('click', '#lt', () => {
+//   // $("#lt").off('click');
+//   $('#drp1').show();
+// });
+
+// $('#lt').click(function(){
+//   alert("I am here");
+//   $("#lt").off('click');
+//   $('#drp1').show();
+//   // $('#lt').on('click', function(){
+//   //   alert("Again enabled");
+//   // });
+// });
 
 $('#btnn1').click(function(){
   var val1 = $('#select1').val();
